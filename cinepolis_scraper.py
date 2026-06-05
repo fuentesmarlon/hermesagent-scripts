@@ -12,6 +12,7 @@ from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -41,6 +42,7 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
 )
+CAMOFOX_DEFAULT_URL = "http://localhost:9377"
 
 
 def fetch_text(url: str) -> str:
@@ -51,6 +53,22 @@ def fetch_text(url: str) -> str:
             return response.read().decode(charset, errors="replace")
     except (HTTPError, URLError, TimeoutError) as exc:
         raise RuntimeError(f"No se pudo descargar {url}: {exc}") from exc
+
+
+def request_json(url: str, method: str = "GET", body: dict[str, Any] | None = None) -> dict[str, Any]:
+    data = None
+    headers = {"Accept": "application/json"}
+    if body is not None:
+        data = json.dumps(body).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+
+    request = Request(url, data=data, headers=headers, method=method)
+    try:
+        with urlopen(request, timeout=45) as response:
+            charset = response.headers.get_content_charset() or "utf-8"
+            return json.loads(response.read().decode(charset, errors="replace"))
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"No se pudo llamar {url}: {exc}") from exc
 
 
 def extract_js_object(html: str, variable_name: str) -> dict[str, Any]:
@@ -89,7 +107,7 @@ def extract_js_object(html: str, variable_name: str) -> dict[str, Any]:
     raise RuntimeError(f"No encontre el cierre JSON de {variable_name}")
 
 
-def read_cache(cache_path: Path, cache_ttl_minutes: int) -> dict[str, Any] | None:
+def read_cache(cache_path: Path, cache_ttl_minutes: int, backend: str) -> dict[str, Any] | None:
     if cache_ttl_minutes <= 0 or not cache_path.exists():
         return None
 
@@ -98,6 +116,8 @@ def read_cache(cache_path: Path, cache_ttl_minutes: int) -> dict[str, Any] | Non
         cached_at = datetime.fromisoformat(cached["cached_at"])
     except (KeyError, ValueError, json.JSONDecodeError, OSError):
         return None
+    if cached.get("backend") and cached.get("backend") != backend:
+        return None
 
     if datetime.now(timezone.utc) - cached_at > timedelta(minutes=cache_ttl_minutes):
         return None
@@ -105,27 +125,99 @@ def read_cache(cache_path: Path, cache_ttl_minutes: int) -> dict[str, Any] | Non
     return cached.get("data")
 
 
-def write_cache(cache_path: Path, data: dict[str, Any]) -> None:
+def write_cache(cache_path: Path, data: dict[str, Any], backend: str) -> None:
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    payload = {"cached_at": datetime.now(timezone.utc).isoformat(), "data": data}
+    payload = {"cached_at": datetime.now(timezone.utc).isoformat(), "backend": backend, "data": data}
     cache_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
 
 
-def load_raw_data(cache_path: Path | None = None, cache_ttl_minutes: int = 0) -> dict[str, Any]:
-    if cache_path:
-        cached = read_cache(cache_path, cache_ttl_minutes)
-        if cached:
-            return cached
-
+def load_raw_data_direct() -> dict[str, Any]:
     try:
-        data = json.loads(fetch_text(API_URL))
+        return json.loads(fetch_text(API_URL))
     except Exception:
         html = fetch_text(BASE_URL)
         plugin_data = extract_js_object(html, "rpReactPlugin")
-        data = plugin_data.get("initialData") or {}
+        return plugin_data.get("initialData") or {}
+
+
+def load_raw_data_camofox(camofox_url: str = CAMOFOX_DEFAULT_URL) -> dict[str, Any]:
+    base = camofox_url.rstrip("/")
+    user_id = "cinepolis-scraper"
+    tab: dict[str, Any] | None = None
+
+    expression = """
+    (async () => {
+      if (window.rpReactPlugin && window.rpReactPlugin.initialData) {
+        return window.rpReactPlugin.initialData;
+      }
+
+      const response = await fetch('/wp-json/mapi/v1/sites-data', {
+        headers: {
+          'Accept': 'application/json,text/plain,*/*',
+          'Referer': 'https://cinepolis.com.gt/'
+        }
+      });
+      if (!response.ok) {
+        return { "__error": `Cinepolis returned HTTP ${response.status}` };
+      }
+      return await response.json();
+    })()
+    """
+
+    try:
+        tab = request_json(
+            f"{base}/tabs",
+            method="POST",
+            body={"userId": user_id, "sessionKey": "cinepolis", "url": BASE_URL},
+        )
+        tab_id = tab.get("tabId")
+        if not tab_id:
+            raise RuntimeError(f"Camofox no devolvio tabId: {tab}")
+
+        request_json(
+            f"{base}/tabs/{tab_id}/wait",
+            method="POST",
+            body={"userId": user_id, "timeout": 3000},
+        )
+        evaluated = request_json(
+            f"{base}/tabs/{tab_id}/evaluate",
+            method="POST",
+            body={"userId": user_id, "expression": expression},
+        )
+        data = evaluated.get("result")
+        if isinstance(data, dict) and data.get("__error"):
+            raise RuntimeError(data["__error"])
+        if not isinstance(data, dict) or "movies" not in data:
+            raise RuntimeError(f"Camofox no encontro datos de cartelera: {evaluated}")
+
+        return data
+    finally:
+        try:
+            request_json(f"{base}/sessions/{quote(user_id)}", method="DELETE")
+        except RuntimeError:
+            pass
+
+
+def load_raw_data(
+    cache_path: Path | None = None,
+    cache_ttl_minutes: int = 0,
+    backend: str = "direct",
+    camofox_url: str = CAMOFOX_DEFAULT_URL,
+) -> dict[str, Any]:
+    if cache_path:
+        cached = read_cache(cache_path, cache_ttl_minutes, backend)
+        if cached:
+            return cached
+
+    if backend == "direct":
+        data = load_raw_data_direct()
+    elif backend == "camofox":
+        data = load_raw_data_camofox(camofox_url)
+    else:
+        raise RuntimeError(f"Backend desconocido: {backend}")
 
     if cache_path:
-        write_cache(cache_path, data)
+        write_cache(cache_path, data, backend)
 
     return data
 
@@ -290,6 +382,17 @@ def main() -> int:
         help="Minutos de validez del cache. 0 desactiva cache.",
     )
     parser.add_argument(
+        "--backend",
+        choices=["direct", "camofox"],
+        default="direct",
+        help="Fuente de datos: HTTP directo o servidor Camofox local.",
+    )
+    parser.add_argument(
+        "--camofox-url",
+        default=CAMOFOX_DEFAULT_URL,
+        help="URL del servidor Camofox cuando --backend camofox esta activo.",
+    )
+    parser.add_argument(
         "--exit-code",
         action="store_true",
         help="Con --watch, retorna 0 si esta disponible y 1 si no esta disponible.",
@@ -306,7 +409,14 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    result = normalize(load_raw_data(args.cache_file, args.cache_ttl_minutes))
+    result = normalize(
+        load_raw_data(
+            args.cache_file,
+            args.cache_ttl_minutes,
+            backend=args.backend,
+            camofox_url=args.camofox_url,
+        )
+    )
     if args.watch:
         result = check_movie_availability(args.watch, result)
 

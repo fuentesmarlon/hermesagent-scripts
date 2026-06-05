@@ -1,0 +1,3 @@
+# This project currently uses only Python standard-library modules.
+# Keep this file so droplet setup can still run:
+#   pip install -r requirements.txt
