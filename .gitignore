@@ -1,0 +1,24 @@
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local runtime output
+*.log
+*.tmp
+cinepolis_result.json
+cinepolis_cache.json
+
+# Environment/config secrets
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/

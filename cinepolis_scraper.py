@@ -18,6 +18,25 @@ from urllib.request import Request, urlopen
 
 BASE_URL = "https://cinepolis.com.gt/"
 API_URL = "https://cinepolis.com.gt/wp-json/mapi/v1/sites-data"
+MIN_MATCH_SCORE = 70
+TITLE_STOPWORDS = {
+    "a",
+    "al",
+    "and",
+    "de",
+    "del",
+    "el",
+    "en",
+    "la",
+    "las",
+    "los",
+    "of",
+    "the",
+    "to",
+    "un",
+    "una",
+    "y",
+}
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
@@ -165,6 +184,14 @@ def normalize_text(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", without_accents.lower()).strip()
 
 
+def title_words(value: str, *, keep_stopwords: bool = False) -> set[str]:
+    words = set(normalize_text(value).split())
+    if keep_stopwords:
+        return words
+    content_words = words - TITLE_STOPWORDS
+    return content_words or words
+
+
 def title_score(query: str, title: str) -> int:
     normalized_query = normalize_text(query)
     normalized_title = normalize_text(title)
@@ -176,19 +203,19 @@ def title_score(query: str, title: str) -> int:
     if normalized_query in normalized_title:
         return 90
 
-    query_words = set(normalized_query.split())
-    title_words = set(normalized_title.split())
-    if not query_words:
+    query_terms = title_words(query)
+    title_terms = title_words(title)
+    if not query_terms or not title_terms:
         return 0
 
-    shared_word_score = int(len(query_words & title_words) / len(query_words) * 80)
+    shared_word_score = int(len(query_terms & title_terms) / len(query_terms) * 80)
     whole_title_score = int(SequenceMatcher(None, normalized_query, normalized_title).ratio() * 85)
 
     fuzzy_word_scores = []
-    for query_word in query_words:
+    for query_word in query_terms:
         best_word_score = max(
             SequenceMatcher(None, query_word, title_word).ratio()
-            for title_word in title_words
+            for title_word in title_terms
         )
         fuzzy_word_scores.append(best_word_score)
     fuzzy_word_score = int(sum(fuzzy_word_scores) / len(fuzzy_word_scores) * 88)
@@ -201,7 +228,7 @@ def find_best_movie(query: str, movies: list[dict[str, Any]]) -> dict[str, Any] 
         (title_score(query, movie.get("titulo") or ""), movie)
         for movie in movies
     ]
-    scored_movies = [(score, movie) for score, movie in scored_movies if score >= 60]
+    scored_movies = [(score, movie) for score, movie in scored_movies if score >= MIN_MATCH_SCORE]
     if not scored_movies:
         return None
 
