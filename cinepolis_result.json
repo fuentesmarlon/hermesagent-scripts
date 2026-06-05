@@ -1,0 +1,808 @@
+{
+  "fuente": "https://cinepolis.com.gt/wp-json/mapi/v1/sites-data",
+  "scraped_at": "2026-06-05T16:57:44.597938+00:00",
+  "resumen": {
+    "cines": 17,
+    "peliculas_cartelera": 12,
+    "peliculas_proximamente": 16
+  },
+  "cines": [
+    {
+      "id": 1649,
+      "nombre": "Cinépolis Parque Las Américas",
+      "slug": "cinepolis-parque-las-americas",
+      "ciudad": "GUATEMALA",
+      "direccion": "AVENIDA LAS AMERICAS 6-69   ZONA 14 CENTRO, COMERCIALPARQUE LAS AMERICAS 4TO. NIVEL, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1655,
+      "nombre": "Cinépolis Utz Ulew Mall",
+      "slug": "cinepolis-utz-ulew-mall",
+      "ciudad": "QUETZALTENANGO",
+      "direccion": "19 AVENIDA 2-40   ZONA 3 UTZ ULEW MALL,, 3ER. NIVEL, QUETZALTENANGO",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE",
+        "XE"
+      ]
+    },
+    {
+      "id": 1644,
+      "nombre": "Cinépolis Santa Clara",
+      "slug": "cinepolis-santa-clara",
+      "ciudad": "VILLA NUEVA",
+      "direccion": "KILOMETRO 17 5    ZONA 3 CENTRO COMERCIAL, SANTA CLARA CARRETERA AL PACIFICO, VILLA NUEVA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB"
+      ]
+    },
+    {
+      "id": 1654,
+      "nombre": "Cinépolis Sankris Mall",
+      "slug": "cinepolis-sankris-mall",
+      "ciudad": "MIXCO",
+      "direccion": "BOULEVARD SAN CRISTOBAL 6-72   ZONA 8 3RA., CALLE, SAN CRISTOBAL, MIXCO",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1653,
+      "nombre": "Cinépolis Rus Mall",
+      "slug": "cinepolis-rus-mall",
+      "ciudad": "GUATEMALA",
+      "direccion": "CALZADA ROOSEVELT 12-76   ZONA 7 CENTRO, COMERCIAL RUS 3ER. NIVEL, ÁREA DE CINES, GUATEMALA",
+      "formatos": [
+        "JUNIOR",
+        "3D",
+        "2D",
+        "DOB",
+        "XE",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1652,
+      "nombre": "Cinépolis Pradera Zacapa",
+      "slug": "cinepolis-pradera-zacapa",
+      "ciudad": "ZACAPA",
+      "direccion": "CALLE 1RA    ZONA 3 CENTRO COMERCIAL, PRADERA ZACAPA 17 AVENIDA ANCLA NÚMERO 2, ZACAPA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB"
+      ]
+    },
+    {
+      "id": 1651,
+      "nombre": "Cinépolis Portales",
+      "slug": "cinepolis-portales",
+      "ciudad": "GUATEMALA",
+      "direccion": "CENTRO COMERCIAL PORTALES LOCAL ANCLA 3 3ER NIVEL, 3-20   ZONA 17 CARRRETERA AL ATLANTICO CA09 NORTE, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE",
+        "XE"
+      ]
+    },
+    {
+      "id": 1641,
+      "nombre": "Cinépolis Plaza Américas",
+      "slug": "cinepolis-plaza-americas",
+      "ciudad": "MAZATENANGO",
+      "direccion": "KILOMETRO 158 CARRETERA DE GUATEMALA, HACIA MAZATENANGO, PLAZA AMERICAS LOCAL NUMERO 233, MAZATENANGO",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1650,
+      "nombre": "Cinépolis Paseo Cayalá",
+      "slug": "cinepolis-paseo-cayala",
+      "ciudad": "GUATEMALA",
+      "direccion": "BOULEVARD RAFAEL LANDIVAR 10-05   ZONA 16, INTERIOR PASEO CAYALA, LOCAL 0-207, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1643,
+      "nombre": "Cinépolis Centro Gran Carchá",
+      "slug": "cinepolis-centro-gran-carcha",
+      "ciudad": "CARCHA",
+      "direccion": "CALLE 7MA BARRIO SAN SEBASTIAN, CENTRO COMERCIAL GRAN CARCHA, CARCHA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB"
+      ]
+    },
+    {
+      "id": 1656,
+      "nombre": "Cinépolis Oakland Mall VIP",
+      "slug": "cinepolis-oakland-mall-vip",
+      "ciudad": "GUATEMALA",
+      "direccion": "DIAGONAL 6 13-01   ZONA 10 3ER. NIVEL, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "VIP",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1648,
+      "nombre": "Cinépolis Oakland Mall",
+      "slug": "cinepolis-oakland-mall",
+      "ciudad": "GUATEMALA",
+      "direccion": "DIAGONAL 6 13-01   ZONA 10 3ER. NIVEL, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "4DX",
+        "SUBTITLE",
+        "XE"
+      ]
+    },
+    {
+      "id": 1647,
+      "nombre": "Cinépolis Naranjo Mall",
+      "slug": "cinepolis-naranjo-mall",
+      "ciudad": "MIXCO",
+      "direccion": "23 CALLE CONDADO NARANJO 10-00, ZONA 4 3ER NIVEL, MIXCO",
+      "formatos": [
+        "3D",
+        "JUNIOR",
+        "2D",
+        "DOB",
+        "SUBTITLE",
+        "XE"
+      ]
+    },
+    {
+      "id": 1645,
+      "nombre": "Cinépolis Metroplaza Jutiapa",
+      "slug": "cinepolis-metroplaza-jutiapa",
+      "ciudad": "JUTIAPA",
+      "direccion": "KILOMETRO 116 CARRETERA INTERAMERICANA ZONA 0, C. COM METROPLAZA JUTIAPA ALDEA CERRO GORDO, JUTIAPA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB"
+      ]
+    },
+    {
+      "id": 1657,
+      "nombre": "Cinépolis Interplaza Xela",
+      "slug": "cinepolis-interplaza-xela",
+      "ciudad": "QUETZALTENANGO",
+      "direccion": "KILOMETRO 205 DE LA CARR. QUE CONDUCE A SAN MARCOS, CENT COMER INTR PLAZA 2DO. NIVEL, LOCAL 201, QUETZALTENANGO",
+      "formatos": [
+        "3D",
+        "JUNIOR",
+        "2D",
+        "DOB",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1646,
+      "nombre": "Cinépolis Galerías Miraflores",
+      "slug": "cinepolis-galerias-miraflores",
+      "ciudad": "GUATEMALA",
+      "direccion": "21 AVENIDA 4-32   ZONA 11 CENTRO COMERCIAL, GALERIAS MIRAFLORES 2DO. NIVEL, GUATEMALA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB",
+        "IMAX",
+        "SUBTITLE"
+      ]
+    },
+    {
+      "id": 1642,
+      "nombre": "Cinépolis El Frutal",
+      "slug": "cinepolis-el-frutal",
+      "ciudad": "VILLA NUEVA",
+      "direccion": "BOULEVARD EL FRUTAL 14-00   ZONA 5 EL FRUTAL, COMPLEJO COMERCIAL, 2DO. NIVEL, LOCAL 201, VILLA NUEVA",
+      "formatos": [
+        "3D",
+        "2D",
+        "DOB"
+      ]
+    }
+  ],
+  "peliculas_cartelera": [
+    {
+      "titulo": "Toy Story 5",
+      "slug": "toy-story-5",
+      "codigo": "48339",
+      "fecha_estreno": "2026-06-18",
+      "duracion_min": 102,
+      "clasificacion": "TBC",
+      "generos": [
+        "ANIMACION",
+        "INFANTIL"
+      ],
+      "formatos": [
+        "2D",
+        "SUBTITLE",
+        "DOB",
+        "3D",
+        "XE",
+        "JUNIOR",
+        "VIP",
+        "4DX",
+        "IMAX"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": true,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "BTS WORLD TOUR 'ARIRANG' IN BUSAN: LIVE VIEWING OV",
+      "slug": "bts-world-tour-arirang-in-busan-live-viewing-ov",
+      "codigo": "48507",
+      "fecha_estreno": "2026-06-13",
+      "duracion_min": 195,
+      "clasificacion": "TBC",
+      "generos": [
+        "Concierto"
+      ],
+      "formatos": [
+        "2D"
+      ],
+      "doblada": false,
+      "subtitulada": false,
+      "preventa": true,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "El día de la revelación",
+      "slug": "el-dia-de-la-revelacion",
+      "codigo": "48322",
+      "fecha_estreno": "2026-06-11",
+      "duracion_min": 146,
+      "clasificacion": "TBC",
+      "generos": [
+        "CIENCIA FICCION",
+        "DRAMA"
+      ],
+      "formatos": [
+        "2D",
+        "SUBTITLE",
+        "DOB",
+        "IMAX"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": true,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Scary Movie: Terroríficamente incorrecta",
+      "slug": "scary-movie-6",
+      "codigo": "48314",
+      "fecha_estreno": "2026-06-04",
+      "duracion_min": 95,
+      "clasificacion": "B15",
+      "generos": [
+        "COMEDIA",
+        "TERROR"
+      ],
+      "formatos": [
+        "2D",
+        "SUBTITLE",
+        "DOB",
+        "XE",
+        "VIP",
+        "4DX"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": true,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Amos del Universo",
+      "slug": "amos-del-universo",
+      "codigo": "48298",
+      "fecha_estreno": "2026-06-04",
+      "duracion_min": 142,
+      "clasificacion": "B",
+      "generos": [
+        "ACCION",
+        "AVENTURA",
+        "CIENCIA FICCION"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "SUBTITLE",
+        "XE",
+        "VIP",
+        "4DX",
+        "IMAX"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": true,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Backrooms: Sin Salida",
+      "slug": "backrooms-sin-salida",
+      "codigo": "48427",
+      "fecha_estreno": "2026-05-28",
+      "duracion_min": 110,
+      "clasificacion": "B15",
+      "generos": [
+        "THRILLER",
+        "CIENCIA FICCION",
+        "TERROR"
+      ],
+      "formatos": [
+        "2D",
+        "SUBTITLE",
+        "DOB",
+        "VIP"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Operación vuelta al mundo",
+      "slug": "operacion-bebe-oso-vuelta-al-mundo",
+      "codigo": "48200",
+      "fecha_estreno": "2026-05-28",
+      "duracion_min": 87,
+      "clasificacion": "A",
+      "generos": [
+        "ANIMACION",
+        "COMEDIA",
+        "AVENTURA"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "JUNIOR"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Star Wars: The Mandalorian and Grogu",
+      "slug": "star-wars-the-mandalorian-and-grogu",
+      "codigo": "48250",
+      "fecha_estreno": "2026-05-21",
+      "duracion_min": 133,
+      "clasificacion": "B",
+      "generos": [
+        "ACCION",
+        "AVENTURA",
+        "CIENCIA FICCION"
+      ],
+      "formatos": [
+        "2D",
+        "SUBTITLE",
+        "DOB",
+        "VIP"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Obsesión",
+      "slug": "obsesion",
+      "codigo": "48273",
+      "fecha_estreno": "2026-05-14",
+      "duracion_min": 110,
+      "clasificacion": "C",
+      "generos": [
+        "SUSPENSO",
+        "TERROR"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "SUBTITLE"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "El diablo viste a la moda 2",
+      "slug": "el-diablo-viste-a-la-moda-2",
+      "codigo": "48196",
+      "fecha_estreno": "2026-04-30",
+      "duracion_min": 120,
+      "clasificacion": "B",
+      "generos": [
+        "COMEDIA",
+        "DRAMA"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "SUBTITLE"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Michael",
+      "slug": "michael",
+      "codigo": "48175",
+      "fecha_estreno": "2026-04-23",
+      "duracion_min": 127,
+      "clasificacion": "B12",
+      "generos": [
+        "DRAMA"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "SUBTITLE"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    },
+    {
+      "titulo": "Super Mario Galaxy: La Película",
+      "slug": "super-mario-galaxy-la-pelicula",
+      "codigo": "48099",
+      "fecha_estreno": "2026-04-02",
+      "duracion_min": 98,
+      "clasificacion": "A",
+      "generos": [
+        "ANIMACION",
+        "AVENTURA"
+      ],
+      "formatos": [
+        "DOB",
+        "2D",
+        "JUNIOR"
+      ],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "cartelera"
+    }
+  ],
+  "peliculas_proximamente": [
+    {
+      "titulo": "El Bufón 2",
+      "slug": "el-bufon-2",
+      "codigo": "48287",
+      "fecha_estreno": "2026-06-11",
+      "duracion_min": 86,
+      "clasificacion": "TBC",
+      "generos": [
+        "SUSPENSO",
+        "TERROR"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "El Día D: Bajo Presión",
+      "slug": "el-dia-d-bajo-presion",
+      "codigo": "48487",
+      "fecha_estreno": "2026-08-06",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "THRILLER",
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Evil Dead: En llamas",
+      "slug": "evil-dead-en-llamas",
+      "codigo": "48433",
+      "fecha_estreno": "2026-07-09",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "TERROR"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Impacto mortal",
+      "slug": "impacto-mortal",
+      "codigo": "48469",
+      "fecha_estreno": "2026-07-16",
+      "duracion_min": 110,
+      "clasificacion": "TBC",
+      "generos": [
+        "THRILLER",
+        "TERROR"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "La Invitación",
+      "slug": "la-invitacion",
+      "codigo": "48467",
+      "fecha_estreno": "2026-06-25",
+      "duracion_min": 106,
+      "clasificacion": "TBC",
+      "generos": [
+        "COMEDIA",
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "La Odisea",
+      "slug": "la-odisea",
+      "codigo": "48449",
+      "fecha_estreno": "2026-07-16",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "ACCION",
+        "AVENTURA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "La maestra Violet",
+      "slug": "la-maestra-violet",
+      "codigo": "48278",
+      "fecha_estreno": "2026-07-23",
+      "duracion_min": 108,
+      "clasificacion": "TBC",
+      "generos": [
+        "COMEDIA",
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": false,
+      "subtitulada": true,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Las 100 noches del deseo",
+      "slug": "las-100-noches-del-deseo",
+      "codigo": "48431",
+      "fecha_estreno": "2026-06-11",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Letras robadas",
+      "slug": "letras-robadas",
+      "codigo": "48465",
+      "fecha_estreno": "2026-06-11",
+      "duracion_min": 96,
+      "clasificacion": "TBC",
+      "generos": [
+        "COMEDIA",
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Los lazos que nos unen",
+      "slug": "los-lazos-que-nos-unen",
+      "codigo": "48338",
+      "fecha_estreno": "2026-08-06",
+      "duracion_min": 107,
+      "clasificacion": "TBC",
+      "generos": [
+        "DRAMA"
+      ],
+      "formatos": [],
+      "doblada": false,
+      "subtitulada": true,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Minions & Monstruos",
+      "slug": "minions-monstruos",
+      "codigo": "48375",
+      "fecha_estreno": "2026-07-02",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "ANIMACION",
+        "COMEDIA",
+        "INFANTIL"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Moana",
+      "slug": "moana",
+      "codigo": "48395",
+      "fecha_estreno": "2026-07-09",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "AVENTURA",
+        "INFANTIL"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Paw Patrol: La Dino película",
+      "slug": "paw-patrol-la-dino-pelicula",
+      "codigo": "48503",
+      "fecha_estreno": "2026-08-13",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "ANIMACION",
+        "COMEDIA"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Spider-Man: Un nuevo día",
+      "slug": "spider-man-un-nuevo-dia",
+      "codigo": "48471",
+      "fecha_estreno": "2026-07-30",
+      "duracion_min": 120,
+      "clasificacion": "TBC",
+      "generos": [
+        "ACCION",
+        "CIENCIA FICCION"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Supergirl",
+      "slug": "supergirl",
+      "codigo": "48359",
+      "fecha_estreno": "2026-06-25",
+      "duracion_min": 121,
+      "clasificacion": "TBC",
+      "generos": [
+        "ACCION",
+        "CIENCIA FICCION"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    },
+    {
+      "titulo": "Toy Story 5",
+      "slug": "toy-story-5-2",
+      "codigo": "48510",
+      "fecha_estreno": "2026-06-18",
+      "duracion_min": 102,
+      "clasificacion": "TBC",
+      "generos": [
+        "ANIMACION",
+        "INFANTIL"
+      ],
+      "formatos": [],
+      "doblada": true,
+      "subtitulada": false,
+      "preventa": false,
+      "estreno": false,
+      "estado": "proximamente"
+    }
+  ]
+}
